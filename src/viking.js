@@ -50,16 +50,34 @@ class War {
     this.saxonArmy=[]
   }
   addViking(addOneVikingObj){
-  this.vikingArmy.object.assign(addOneVikingObj)
+  this.vikingArmy.push(addOneVikingObj)
   };
   addSaxon(addOneSaxonObj){
-  this.saxonArmy.object.assign(addOneSaxonObj)
+  this.saxonArmy.push(addOneSaxonObj)
   };
   vikingAttack(){
-    let allSaxonArmySoldiers-Math.floor(Math.random()* this.saxonArmy.length)
+    let randomSaxonSoldier = [Math.floor(Math.random()* this.saxonArmy.length)]
+    let battleText = this.saxonArmy[randomSaxon].receiveDamage(this.vikingArmy[0].strength)
+    if (this.saxonArmy[randomSaxonSoldier].health<=0){
+      this.saxonArmy.splice(randomSaxon)
+    }
+    return battleText
+  }
+
+  saxonAttack(){
+    let randomViking = [Math.floor(Math.random()* this.vikingArmy.length)]
+    let battleText = this.vikingArmy[randomViking].receiveDamage(this.saxonArmy[0].strength)
+    if (this.vikingArmy[randomViking].health<=0){
+      this.vikingArmy.splice(randomViking)
+    }
+    return battleText
+
   };
-  saxonAttack(){};
-  showStatus(){}
+  showStatus(){
+    if(this.saxonArmy.length<= 0){
+      return `Viking`
+    }
+  }
 }
 
 
